@@ -5,7 +5,6 @@ const Home = () => {
     return (
         <>
         <Header/>
-        <hr></hr>
         <main>
          <section>
            <article>

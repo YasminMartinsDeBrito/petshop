@@ -22,9 +22,9 @@ import { BiLogIn } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
 const Header = () => {
-  const cores = ["#f95555", "#fff", "#000"];
-  const { isOpen, onOpen, onClose } = useDisclosure();
   const [isWidth768] = useMediaQuery("(min-width:768px)");
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const cores = ["#f95555", "#fff", "#000"];
   const initialRef = React.useRef(null);
   const finalRef = React.useRef(null);
 
@@ -47,22 +47,24 @@ const Header = () => {
               justifyContent="space-evenly"
               alignItems="center"
             >
-              <ListItem fontSize="25px">Pet Shop Mimos Feliz</ListItem>
+              <ListItem fontSize="25px">
+              <Link to="/">Pet Shop Mimos Feliz</Link>
+                </ListItem>
 
-              <ListItem ml="10vw">
+              <ListItem cursor='pointer' ml="10vw">
                 <ListIcon as={FcAbout} />
-                <Link to="sobre">Sobre</Link>
+                <Link to="/sobre">Sobre</Link>
               </ListItem>
 
-              <ListItem ml="10vw">
+              <ListItem cursor='pointer' ml="10vw">
                 <ListIcon as={BsImages} />
-                <Link to="fotos">Fotos</Link>
+                <Link to="/fotos">Fotos</Link>
               </ListItem>
 
-              <ListItem ml="10vw">
-                <Box onClick={onOpen} ref={finalRef}>
-                  <Link to="/">Acessar</Link>
+              <ListItem cursor='pointer' ml="10vw">
+                <Box display='flex' onClick={onOpen} ref={finalRef}>
                   <ListIcon as={BiLogIn} />
+                  <Text>Acessar</Text>
                 </Box>
               </ListItem>
             </UnorderedList>
@@ -128,28 +130,29 @@ const Header = () => {
               mt="20px"
               fontSize="20px"
             >
-              Pet Shop Mimos Pets Feliz
+              <Link to="/">Pet Shop Mimos Feliz</Link>
             </Text>
           </Box>
 
-          <UnorderedList display='flex' flexDirection='column' alignItems='center'>
+          <UnorderedList
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+          >
             <ListItem
-              display='flex'
-              flexDirection='row'
-              justifyContent='center'
+              display="flex"
+              flexDirection="row"
+              justifyContent="center"
               position="relative"
               color={cores[1]}
               fontSize="14px"
-              cursor='pointer'
+              cursor="pointer"
               w="100px"
-              p='10px'
-              _hover={{ p:"10px" ,bg: "#fff", color: "#f95555" }}
-              _active={{ p:"10px" ,bg: "#fff", color: "#f95555" }}
+              p="10px"
+              _hover={{ p: "10px", bg: "#fff", color: "#f95555" }}
+              _active={{ p: "10px", bg: "#fff", color: "#f95555" }}
             >
-              <Box
-                _hover={{ bg: "#eee" }}
-                _active={{ bg: "#eee" }}
-              >
+              <Box _hover={{ bg: "#eee" }} _active={{ bg: "#eee" }}>
                 <ListIcon
                   as={FcAbout}
                   position="relative"
@@ -159,29 +162,26 @@ const Header = () => {
                   textAlign="center"
                   pr="25px"
                 />
-                <Link to="sobre">
+                <Link to="/sobre">
                   <Text>Sobre</Text>
                 </Link>
               </Box>
             </ListItem>
 
             <ListItem
-              display='flex'
-              flexDirection='row'
-              justifyContent='center'
+              display="flex"
+              flexDirection="row"
+              justifyContent="center"
               position="relative"
               color={cores[1]}
               fontSize="14px"
-              cursor='pointer'
+              cursor="pointer"
               w="100px"
-              p='10px'
-              _hover={{ p:"10px" ,bg: "#fff", color: "#f95555" }}
-              _active={{ p:"10px" ,bg: "#fff", color: "#f95555" }}
+              p="10px"
+              _hover={{ p: "10px", bg: "#fff", color: "#f95555" }}
+              _active={{ p: "10px", bg: "#fff", color: "#f95555" }}
             >
-              <Box
-                _hover={{ bg: "#eee" }}
-                _active={{ bg: "#eee" }}
-              >
+              <Box _hover={{ bg: "#eee" }} _active={{ bg: "#eee" }}>
                 <ListIcon
                   as={BsImages}
                   position="relative"
@@ -191,24 +191,24 @@ const Header = () => {
                   textAlign="center"
                   pr="25px"
                 />
-                <Link to="fotos">
+                <Link to="/fotos">
                   <Text>Fotos</Text>
                 </Link>
               </Box>
             </ListItem>
 
             <ListItem
-              display='flex'
-              flexDirection='row'
-              justifyContent='center'
+              display="flex"
+              flexDirection="row"
+              justifyContent="center"
               position="relative"
               color={cores[1]}
               fontSize="14px"
-              cursor='pointer'
+              cursor="pointer"
               w="100px"
-              p='10px'
-              _hover={{ p:"10px" ,bg: "#fff", color: "#f95555" }}
-              _active={{ p:"10px" ,bg: "#fff", color: "#f95555" }}
+              p="10px"
+              _hover={{ p: "10px", bg: "#fff", color: "#f95555" }}
+              _active={{ p: "10px", bg: "#fff", color: "#f95555" }}
             >
               <Box
                 onClick={onOpen}
@@ -238,22 +238,25 @@ const Header = () => {
           >
             <ModalOverlay />
             <ModalContent
-              m="40px 10px"
+              m="40px 10vw"
               display="flex"
               justifyContent="flex-end"
               alignItems="center"
-              mt="100px"
-              h="300px"
-              w="300px"
+              h="250px"
+              w="250px"
               borderRadius="10px"
               backgroundColor={cores[0]}
             >
               <ModalCloseButton bg={cores[1]}>X</ModalCloseButton>
               <ModalBody pb={6}>
-                <UnorderedList mt="40px" listStyleType="none">
-                  <ListItem ref={initialRef}>Cadastrar</ListItem>
+                <UnorderedList mt="80px" listStyleType="none">
+                  <ListItem ref={initialRef} mt="10px">
+                    <Link to="/cadastrar">Cadastrar</Link>
+                  </ListItem>
                   <ListItem>
-                    <Button>Login</Button>
+                    <Button mt="10px">
+                      <Link to="/login">Login</Link>
+                    </Button>
                   </ListItem>
                 </UnorderedList>
               </ModalBody>
