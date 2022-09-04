@@ -48,21 +48,21 @@ const Header = () => {
               alignItems="center"
             >
               <ListItem fontSize="25px">
-              <Link to="/">Pet Shop Mimos Feliz</Link>
-                </ListItem>
+                <Link to="/">Pet Shop Mimos Feliz</Link>
+              </ListItem>
 
-              <ListItem cursor='pointer' ml="10vw">
+              <ListItem cursor="pointer" ml="10vw">
                 <ListIcon as={FcAbout} />
                 <Link to="/sobre">Sobre</Link>
               </ListItem>
 
-              <ListItem cursor='pointer' ml="10vw">
+              <ListItem cursor="pointer" ml="10vw">
                 <ListIcon as={BsImages} />
                 <Link to="/fotos">Fotos</Link>
               </ListItem>
 
-              <ListItem cursor='pointer' ml="10vw">
-                <Box display='flex' onClick={onOpen} ref={finalRef}>
+              <ListItem cursor="pointer" ml="10vw">
+                <Box display="flex" onClick={onOpen} ref={finalRef}>
                   <ListIcon as={BiLogIn} />
                   <Text>Acessar</Text>
                 </Box>
