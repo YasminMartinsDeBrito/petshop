@@ -1,9 +1,5 @@
 import { Routes as Switch, Route } from "react-router-dom";
-import Cadastro from "../pages/Cadastro";
-import Fotos from "../pages/Fotos";
-import Home from "../pages/Home";
-import Login from "../pages/Login";
-import Sobre from "../pages/Sobre";
+import { Cadastro, Home, Fotos, Sobre, Login } from "../pages";
 
 const Rotas = () => {
   return (

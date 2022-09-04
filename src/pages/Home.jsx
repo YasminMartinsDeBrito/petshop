@@ -1,6 +1,7 @@
 import {
   Box,
   Button,
+  Center,
   Container,
   Image,
   ListItem,
@@ -9,9 +10,7 @@ import {
 } from "@chakra-ui/react";
 
 import { useState } from "react";
-import { SwiperSlide } from "swiper/react";
-import Header from "../components/Header";
-import Slider from "../components/Slider";
+import { Slider, Header, Slide, SliderProps} from "../components"
 const Home = () => {
   // passar para o backend
   const [image, setImage] = useState([
@@ -22,15 +21,18 @@ const Home = () => {
     "https://www.petz.com.br/blog/wp-content/uploads/2021/11/enxoval-para-gato-Copia.jpg",
   ]);
   const [isWidth768] = useMediaQuery("(min-width:768px)");
+  
+ 
   const settings = {
-    spaceBetween:50,
-    slidesPerview: 3,
-    navigation:true,
-    // pagination: {
-    //   click
-    // }
-  }
-
+    spaceBetween: 50,
+    slidesPerview: image.length < 3 ? image.length: 3,
+    navigation: isWidth768 && image.length>= 3 ,
+    draggable: image.length >=3,
+    loop: image.length >= 3,
+    pagination:image.length >= 3 && {
+      clickable: true,
+    },
+  };
 
   return (
     <>
@@ -47,32 +49,20 @@ const Home = () => {
               justifyContent="center"
             >
               <>
-                  <Box>
-                    <UnorderedList listStyleType="none">
+                  <Center >
+                    <Box  w="100vw" maxWidth='1280px'>
+                      <Slider settings={settings}>
+                        <UnorderedList h="200px"listStyleType="none">
                         {image.map((item) => (
-                          <Box
-                            key={item}                            
-                          >
-                            <Image src={item} alt={item} />
-                          </Box>
+                        <Slide key={item}>
+                            <Image h="400px"w="100vw" src={item} alt={item} />
+                        </Slide>
                         ))}
-                    </UnorderedList>
-                  <Container>
-                    <Slider settings={settings}>
-                      <SwiperSlide>
-                        <h1>teste1</h1>
-                      </SwiperSlide>
-                      <SwiperSlide>
-                        <h1>teste2</h1>
-                      </SwiperSlide>
-                      <SwiperSlide>
-                        <h1>teste3</h1>
-                      </SwiperSlide>
-                    </Slider>
-                  </Container>
-                    
-
-                  </Box>
+                        </UnorderedList>
+                      </Slider>
+                    </Box>
+                   
+                  </Center>
               </>
               <section>
                 <article>
@@ -90,17 +80,22 @@ const Home = () => {
       ) : (
         <>
           <main>
-            <Box ml="85px">
-              <>
-                <Box>
-                  <UnorderedList display="flex" listStyleType="none">
-                    {image.map((item) => (
-                      <Box mt="20px">
-                        <Image src={item} alt={item} />
-                      </Box>
-                    ))}
-                  </UnorderedList>
-                </Box>
+            <Box ml="90px">
+            <>
+            <Center >
+                    <Box  w="90vw" maxWidth='1280px'>
+                      <Slider settings={settings}>
+                        <UnorderedList listStyleType="none">
+                        {image.map((item) => (
+                        <Slide key={item}>
+                            <Image h="300px"w="90vw" src={item} alt={item} />
+                        </Slide>
+                        ))}
+                        </UnorderedList>
+                      </Slider>
+                    </Box>
+                   
+                  </Center>
               </>
               <section>
                 <article>
