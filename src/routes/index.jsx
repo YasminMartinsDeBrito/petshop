@@ -1,5 +1,5 @@
 import { Routes as Switch, Route } from "react-router-dom";
-import { Cadastro, Home, Fotos, Sobre, Login } from "../pages";
+import { Cadastro, Home, Fotos, Sobre, Login, Endereco } from "../pages";
 
 const Rotas = () => {
   return (
@@ -9,6 +9,7 @@ const Rotas = () => {
       <Route path="sobre" element={<Sobre />} />
       <Route path="login" element={<Login />} />
       <Route path="cadastrar" element={<Cadastro />} />
+      <Route path="endereco" element={<Endereco />} />
     </Switch>
   );
 };

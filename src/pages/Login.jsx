@@ -6,8 +6,7 @@ import {
   FormControl,
   FormLabel,
   Image,
-  Input,
-  Text,
+  Input
 } from "@chakra-ui/react";
 
 import Header from "../components/Header";
@@ -18,9 +17,6 @@ const Login = () => {
       <Header />
       <main>
         <Box h="100vh" w="100vw" background="#fff">
-          <Text fontSize="30px" textAlign="center" p="30px">
-            PetCheck
-          </Text>
           <Center
             margin="0 auto"
             maxWidth="1280px"
@@ -31,27 +27,26 @@ const Login = () => {
             <Container
               w="50%"
               h="100vh"
-              borderRadius="20px"
-              boxShadow="2px 1px 4px 2px"
-              background="#f95555"
             >
               <Image
                 src={filhote}
                 alt="cachorro"
                 zIndex="5"
                 position="relative"
+                m="0 auto"
               />
               <FormControl
-                mt="-96px"
+                mt="-97px"
                 pl="10px"
                 pt="60px"
                 h="280px"
-                border="#fff solid 2px"
+                border="#000 solid 2px"
                 borderRadius="8px"
                 position="relative"
                 display="flex"
                 flexDirection="column"
                 alignItems="center"
+                background="#f95555"
               >
                 <FormLabel color="#fff" fontWeight="bold" textAlign="center">
                   Email:
